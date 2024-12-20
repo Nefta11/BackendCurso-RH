@@ -15,23 +15,19 @@ import gm.rh.servicio.IEmpleadoServicio;
 
 @RestController
 @RequestMapping("rh.app") // http://localhost:8080/rh.app
-@CrossOrigin(value = "hhtp://localhost:3000")
-
+@CrossOrigin(origins = "http://localhost:3000")
 public class EmpleadoControlador {
 
-    private static final Logger logger =
-            LoggerFactory.getLogger(EmpleadoControlador.class);
+    private static final Logger logger = LoggerFactory.getLogger(EmpleadoControlador.class);
 
     @Autowired
     private IEmpleadoServicio empleadoServicio;
 
-    @GetMapping("/empleados") 
+    @GetMapping("/empleados")
     // http://localhost:8080/rh.app/empleados
-
-    public List <Empleado> obtenerEmpleados(){
+    public List<Empleado> obtenerEmpleados() {
         var empleados = empleadoServicio.buscarEmpleados();
         empleados.forEach(empleado -> logger.info(empleado.toString()));
         return empleados;
     }
-
 }
