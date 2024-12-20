@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import gm.rh.excepcion.RecursoNoEncontradoExcepcion;
 import gm.rh.modelo.Empleado;
 import gm.rh.servicio.IEmpleadoServicio;
 
@@ -45,7 +46,10 @@ public class EmpleadoControlador {
     public ResponseEntity<Empleado>
     obtenerEmpleadoPorId(@PathVariable Integer id){
         Empleado empleado = empleadoServicio.buscarEmpleadoPorId(id);
-        if 
+        if(empleado == null){
+            throw new RecursoNoEncontradoExcepcion("Empleado no encontrado con el id: " + id);
+        }
+                return ResponseEntity.ok(empleado);
     }
     
 
