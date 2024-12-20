@@ -7,6 +7,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -30,4 +32,11 @@ public class EmpleadoControlador {
         empleados.forEach(empleado -> logger.info(empleado.toString()));
         return empleados;
     }
+
+    @PostMapping("/empleados")
+    public Empleado agregarEmpleado(@RequestBody Empleado empleado) {
+        logger.info("Empleado a agregar: " + empleado);
+        return empleadoServicio.guardarEmpleado(empleado);
+    }
+
 }
