@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -43,14 +44,27 @@ public class EmpleadoControlador {
     }
 
     @GetMapping("/empleados/{id}")
-    public ResponseEntity<Empleado>
-    obtenerEmpleadoPorId(@PathVariable Integer id){
+    public ResponseEntity<Empleado> obtenerEmpleadoPorId(@PathVariable Integer id) {
         Empleado empleado = empleadoServicio.buscarEmpleadoPorId(id);
-        if(empleado == null){
+        if (empleado == null) {
             throw new RecursoNoEncontradoExcepcion("Empleado no encontrado con el id: " + id);
         }
-                return ResponseEntity.ok(empleado);
+        return ResponseEntity.ok(empleado);
     }
-    
+
+    @PutMapping("/empleados/{id}")
+    public ResponseEntity<Empleado> actualizarEmpleado(@PathVariable Integer id,
+            @RequestBody Empleado empleadoRecibido) {
+        Empleado empleado = empleadoServicio.buscarEmpleadoPorId(id);
+        if (empleado == null) {
+            throw new RecursoNoEncontradoExcepcion("Empleado no encontrado con el id: " + id);
+        }
+        empleado.setNombre(empleadoRecibido.getNombre());
+        empleado.setDepartamento(empleadoRecibido.getDepartamento());
+        empleado.setSueldo(empleadoRecibido.getSueldo());
+        empleadoServicio.guardarEmpleado(empleado);
+
+        return ResponseEntity.ok(empleado);
+    }
 
 }
