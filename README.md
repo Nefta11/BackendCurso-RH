@@ -23,12 +23,6 @@ Este proyecto es una aplicación backend desarrollada con Spring Boot para la ge
 
 La configuración de la base de datos se encuentra en el archivo [`application.properties`](src/main/resources/application.properties):
 
-```properties
-spring.datasource.url=jdbc:mysql://localhost:3306/recursos_humanos_db?createDatabaseIfNotExist=true
-spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
-spring.jpa.hibernate.ddl-auto=update
-spring.jpa.show-sql=true
-
 ## Endpoints
 
 - **GET /rh.app/empleados**: Obtiene la lista de empleados.
@@ -36,14 +30,3 @@ spring.jpa.show-sql=true
 - **GET /rh.app/empleados/{id}**: Obtiene un empleado por su ID.
 - **PUT /rh.app/empleados/{id}**: Actualiza un empleado existente.
 - **DELETE /rh.app/empleados/{id}**: Elimina un empleado por su ID.
-
-## Ejecución de la Aplicación
-
-Para ejecutar la aplicación, utiliza el siguiente comando:
-
-```sh
-./mvnw spring-boot:run
-
-## Certificado del Curso
-
-![Certificado](/images/UC-597e98de-4b97-4ebe-ad68-9f081f995429.jpg)
