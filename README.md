@@ -46,4 +46,4 @@ Para ejecutar la aplicación, utiliza el siguiente comando:
 
 ## Certificado del Curso
 
-![Certificado](/UC-597e98de-4b97-4ebe-ad68-9f081f995429.jpg)
+![Certificado](/images/UC-597e98de-4b97-4ebe-ad68-9f081f995429.jpg)
