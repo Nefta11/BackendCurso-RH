@@ -30,3 +30,7 @@ La configuración de la base de datos se encuentra en el archivo [`application.p
 - **GET /rh.app/empleados/{id}**: Obtiene un empleado por su ID.
 - **PUT /rh.app/empleados/{id}**: Actualiza un empleado existente.
 - **DELETE /rh.app/empleados/{id}**: Elimina un empleado por su ID.
+
+## Certificado del Curso
+
+![Certificado](/images/UC-597e98de-4b97-4ebe-ad68-9f081f995429.jpg)
